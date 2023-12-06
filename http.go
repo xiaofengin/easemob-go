@@ -24,17 +24,19 @@ func (e Error) Error() string {
 }
 
 type Response struct {
-	Path            string `json:"path,omitempty"`
-	URI             string `json:"uri,omitempty"`
-	Timestamp       int64  `json:"timestamp,omitempty"`
-	Count           int    `json:"count,omitempty"`
-	Action          string `json:"action,omitempty"`
-	Duration        int    `json:"duration,omitempty"`
-	Data            bool   `json:"data,omitempty"`
-	ApplicationName string `json:"applicationName,omitempty"`
-	Organization    string `json:"organization,omitempty"`
-	Application     string `json:"application,omitempty"`
-	Cursor          string `json:"cursor,omitempty"`
+	Path            string      `json:"path,omitempty"`
+	URI             string      `json:"uri,omitempty"`
+	Timestamp       int64       `json:"timestamp,omitempty"`
+	Count           int         `json:"count,omitempty"`
+	Action          string      `json:"action,omitempty"`
+	Duration        int         `json:"duration,omitempty"`
+	Data            bool        `json:"data,omitempty"`
+	ApplicationName string      `json:"applicationName,omitempty"`
+	Organization    string      `json:"organization,omitempty"`
+	Application     string      `json:"application,omitempty"`
+	Cursor          string      `json:"cursor,omitempty"`
+	Entities        interface{} `json:"entities,omitempty"`
+	Properties      interface{} `json:"properties,omitempty"`
 }
 type ResultResponse struct {
 	Data interface{} `json:"data"`

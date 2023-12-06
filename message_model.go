@@ -20,7 +20,7 @@ type MsgModel struct {
 	RouteType  string                 `json:"routetype"`
 }
 
-// CreateTextMsg  Creating text message
+// CreateTextMsg  创建文本消息
 func CreateTextMsg(text string, to []string) *MsgModel {
 	b := map[string]interface{}{"msg": text}
 	return &MsgModel{
@@ -34,7 +34,7 @@ func CreateTextMsg(text string, to []string) *MsgModel {
 	}
 }
 
-// CreateImageMsg Creating image message
+// CreateImageMsg 创建图片消息
 func CreateImageMsg(url, fileName string, to []string) *MsgModel {
 	b := map[string]interface{}{"url": url, "filename": fileName}
 	return &MsgModel{
@@ -48,7 +48,7 @@ func CreateImageMsg(url, fileName string, to []string) *MsgModel {
 	}
 }
 
-// CreateAudioMsg Creating audio message
+// CreateAudioMsg 创建音频消息
 func CreateAudioMsg(url, fileName string, to []string, length int) *MsgModel {
 	b := map[string]interface{}{"url": url, "filename": fileName, "length": length}
 	return &MsgModel{
@@ -62,7 +62,7 @@ func CreateAudioMsg(url, fileName string, to []string, length int) *MsgModel {
 	}
 }
 
-// CreateVideoMsg Creating video message
+// CreateVideoMsg 创建视频消息
 func CreateVideoMsg(url, thumb, fileName string, to []string) *MsgModel {
 	b := map[string]interface{}{"url": url, "thumb": thumb, "filename": fileName}
 	return &MsgModel{
@@ -76,7 +76,7 @@ func CreateVideoMsg(url, thumb, fileName string, to []string) *MsgModel {
 	}
 }
 
-// CreateFileMsg Creating file message
+// CreateFileMsg 创建文件消息
 func CreateFileMsg(url, fileName string, to []string) *MsgModel {
 	b := map[string]interface{}{"url": url, "filename": fileName}
 	return &MsgModel{
@@ -90,7 +90,7 @@ func CreateFileMsg(url, fileName string, to []string) *MsgModel {
 	}
 }
 
-// CreateLocMsg Creating location message
+// CreateLocMsg 创建位置消息
 func CreateLocMsg(lat, lng, addr string, to []string) *MsgModel {
 	b := map[string]interface{}{"lat": lat, "lng": lng, "addr": addr}
 	return &MsgModel{
@@ -104,7 +104,7 @@ func CreateLocMsg(lat, lng, addr string, to []string) *MsgModel {
 	}
 }
 
-// CreateCmdMsg Creating cmd message
+// CreateCmdMsg 创建cmd消息
 func CreateCmdMsg(action string, to []string) *MsgModel {
 	b := map[string]interface{}{"action": action}
 	return &MsgModel{
@@ -118,7 +118,7 @@ func CreateCmdMsg(action string, to []string) *MsgModel {
 	}
 }
 
-// CreateCustomMsg Creating custom message
+// CreateCustomMsg 创建自定义消息
 func CreateCustomMsg(customEvent string, to []string) *MsgModel {
 	b := map[string]interface{}{"customEvent": customEvent}
 	return &MsgModel{
