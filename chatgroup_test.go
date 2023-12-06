@@ -7,9 +7,9 @@ import (
 )
 
 func TestClient_CreateGroup(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
@@ -18,8 +18,8 @@ func TestClient_CreateGroup(t *testing.T) {
 		Description: "test",
 		Public:      false,
 		Maxusers:    300,
-		Owner:       "wf1",
-		Members:     []string{"wf2"},
+		Owner:       "userID_1",
+		Members:     []string{"userID_2"},
 	}
 	ret, err := client.CreateGroup(context.Background(), &p)
 	if err != nil {
@@ -30,35 +30,35 @@ func TestClient_CreateGroup(t *testing.T) {
 }
 
 func TestClient_BanGroup(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.BanGroup(context.Background(), "233150354620422")
+	ret, err := client.BanGroup(context.Background(), "groupID")
 	if err != nil {
 		return
 	}
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_UnBanGroup(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.UnBanGroup(context.Background(), "233150354620422")
+	ret, err := client.UnBanGroup(context.Background(), "groupID")
 	if err != nil {
 		return
 	}
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_UpdateGroup(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
@@ -68,16 +68,16 @@ func TestClient_UpdateGroup(t *testing.T) {
 		Public:      true,
 		Maxusers:    99,
 	}
-	ret, err := client.UpdateGroup(context.Background(), "233150354620422", &p)
+	ret, err := client.UpdateGroup(context.Background(), "groupID", &p)
 	if err != nil {
 		return
 	}
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_GetAllGroup(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
@@ -89,39 +89,39 @@ func TestClient_GetAllGroup(t *testing.T) {
 }
 
 func TestClient_GetUserJoinedGroup(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.GetUserJoinedGroup(context.Background(), "233150354620422", "wf2")
+	ret, err := client.GetUserJoinedGroup(context.Background(), "groupID", "userID")
 	if err != nil {
 		return
 	}
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_GetGroupDetail(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.GetGroupDetail(context.Background(), "233150354620422")
+	ret, err := client.GetGroupDetail(context.Background(), "groupID")
 	if err != nil {
 		return
 	}
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_DeleteGroup(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.DeleteGroup(context.Background(), "233150354620422")
+	ret, err := client.DeleteGroup(context.Background(), "groupID")
 	if err != nil {
 		return
 	}
@@ -129,13 +129,13 @@ func TestClient_DeleteGroup(t *testing.T) {
 }
 
 func TestClient_GetGroupAnnouncement(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.GetGroupAnnouncement(context.Background(), "233164044828677")
+	ret, err := client.GetGroupAnnouncement(context.Background(), "groupID")
 	if err != nil {
 		return
 	}
@@ -143,13 +143,13 @@ func TestClient_GetGroupAnnouncement(t *testing.T) {
 }
 func TestClient_UpdateGroupAnnouncement(t *testing.T) {
 
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.UpdateGroupAnnouncement(context.Background(), "233164044828677", "群组公告…")
+	ret, err := client.UpdateGroupAnnouncement(context.Background(), "groupID", "群组公告…")
 	if err != nil {
 		return
 	}
@@ -157,26 +157,26 @@ func TestClient_UpdateGroupAnnouncement(t *testing.T) {
 }
 
 func TestClient_GetGroupShareFile(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.GetGroupShareFile(context.Background(), "233164044828677", "5", "1")
+	ret, err := client.GetGroupShareFile(context.Background(), "groupID", "5", "1")
 	if err != nil {
 		return
 	}
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_UpdateGroupShareFile(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.UpdateGroupShareFile(context.Background(), "233164044828677", "./README.md")
+	ret, err := client.UpdateGroupShareFile(context.Background(), "groupID", "./README.md")
 	if err != nil {
 		return
 	}
@@ -198,13 +198,13 @@ func TestClient_UpdateGroupShareFile(t *testing.T) {
 //		fmt.Printf("数据的值：%v\n", ret.Data)
 //	}
 func TestClient_DeleteGroupShareFile(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.DeleteGroupShareFile(context.Background(), "233164044828677", "9b33b360-9344-11ee-baf5-0b51cff18cba")
+	ret, err := client.DeleteGroupShareFile(context.Background(), "groupID", "fileID")
 	if err != nil {
 		return
 	}
@@ -213,13 +213,13 @@ func TestClient_DeleteGroupShareFile(t *testing.T) {
 
 func TestClient_GetGroupMember(t *testing.T) {
 
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.GetGroupMember(context.Background(), "233164044828677", "5", "1")
+	ret, err := client.GetGroupMember(context.Background(), "groupID", "5", "1")
 	if err != nil {
 		return
 	}
@@ -227,26 +227,26 @@ func TestClient_GetGroupMember(t *testing.T) {
 }
 
 func TestClient_AddGroupMembers(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.AddGroupMembers(context.Background(), "233164044828677", []string{"wf2", "wf3", "wf4"})
+	ret, err := client.AddGroupMembers(context.Background(), "groupID", []string{"userID_1", "userID_2", "userID_3"})
 	if err != nil {
 		return
 	}
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_DeleteGroupMembers(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.DeleteGroupMembers(context.Background(), "233164044828677", []string{"wf2", "wf4"})
+	ret, err := client.DeleteGroupMembers(context.Background(), "groupID", []string{"userID_1", "userID_2"})
 	if err != nil {
 		return
 	}
@@ -254,13 +254,13 @@ func TestClient_DeleteGroupMembers(t *testing.T) {
 }
 
 func TestClient_SetGroupMemberAttributes(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.SetGroupMemberAttributes(context.Background(), "233164044828677", "wf1", map[string]string{"key2": "value2"})
+	ret, err := client.SetGroupMemberAttributes(context.Background(), "groupID", "userID", map[string]string{"key2": "value2"})
 	if err != nil {
 		return
 	}
@@ -268,13 +268,13 @@ func TestClient_SetGroupMemberAttributes(t *testing.T) {
 }
 
 func TestClient_GetGroupMemberAttributes(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.GetGroupMemberAttributes(context.Background(), "233164044828677", "wf3")
+	ret, err := client.GetGroupMemberAttributes(context.Background(), "groupID", "userID")
 	if err != nil {
 		return
 	}
@@ -282,26 +282,26 @@ func TestClient_GetGroupMemberAttributes(t *testing.T) {
 }
 
 func TestClient_GetGroupMembersAttributesData(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.GetGroupMembersAttributesData(context.Background(), "233164044828677", []string{"wf1", "wf3"}, []string{"key1", "key2"})
+	ret, err := client.GetGroupMembersAttributesData(context.Background(), "groupID", []string{"userID_1", "userID_2"}, []string{"key1", "key2"})
 	if err != nil {
 		return
 	}
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_GetGroupAdmin(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.GetGroupAdmin(context.Background(), "233164044828677")
+	ret, err := client.GetGroupAdmin(context.Background(), "groupID")
 	if err != nil {
 		return
 	}
@@ -310,13 +310,13 @@ func TestClient_GetGroupAdmin(t *testing.T) {
 
 func TestClient_AddGroupAdmin(t *testing.T) {
 
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.AddGroupAdmin(context.Background(), "233164044828677", "wf4")
+	ret, err := client.AddGroupAdmin(context.Background(), "groupID", "userID")
 	if err != nil {
 		return
 	}
@@ -324,13 +324,13 @@ func TestClient_AddGroupAdmin(t *testing.T) {
 }
 
 func TestClient_DeleteGroupAdmin(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.DeleteGroupAdmin(context.Background(), "233164044828677", "wf4")
+	ret, err := client.DeleteGroupAdmin(context.Background(), "groupID", "userID")
 	if err != nil {
 		return
 	}
@@ -338,13 +338,13 @@ func TestClient_DeleteGroupAdmin(t *testing.T) {
 }
 
 func TestClient_TransferGroupAdmin(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.TransferGroupAdmin(context.Background(), "233164044828677", "wf1")
+	ret, err := client.TransferGroupAdmin(context.Background(), "groupID", "userID")
 	if err != nil {
 		return
 	}
@@ -352,26 +352,26 @@ func TestClient_TransferGroupAdmin(t *testing.T) {
 }
 func TestClient_GetGroupBlocks(t *testing.T) {
 
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.GetGroupBlocks(context.Background(), "233164044828677")
+	ret, err := client.GetGroupBlocks(context.Background(), "groupID")
 	if err != nil {
 		return
 	}
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_AddGroupBlocks(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.AddGroupBlocks(context.Background(), "233164044828677", []string{"wf1", "wf3"})
+	ret, err := client.AddGroupBlocks(context.Background(), "groupID", []string{"userID_1", "userID_2"})
 	if err != nil {
 		return
 	}
@@ -379,13 +379,13 @@ func TestClient_AddGroupBlocks(t *testing.T) {
 }
 
 func TestClient_DeleteGroupBlocks(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.DeleteGroupBlocks(context.Background(), "233164044828677", []string{"wf1", "wf3"})
+	ret, err := client.DeleteGroupBlocks(context.Background(), "groupID", []string{"userID_1", "userID_2"})
 	if err != nil {
 		return
 	}
@@ -393,13 +393,13 @@ func TestClient_DeleteGroupBlocks(t *testing.T) {
 }
 
 func TestClient_GetGroupWhite(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.GetGroupWhite(context.Background(), "233164044828677")
+	ret, err := client.GetGroupWhite(context.Background(), "groupID")
 	if err != nil {
 		return
 	}
@@ -408,13 +408,13 @@ func TestClient_GetGroupWhite(t *testing.T) {
 
 func TestClient_AddGroupWhites(t *testing.T) {
 
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.AddGroupWhites(context.Background(), "233164044828677", []string{"wf4"})
+	ret, err := client.AddGroupWhites(context.Background(), "groupID", []string{"userID"})
 	if err != nil {
 		return
 	}
@@ -422,13 +422,13 @@ func TestClient_AddGroupWhites(t *testing.T) {
 }
 
 func TestClient_DeleteGroupWhite(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.DeleteGroupWhite(context.Background(), "233164044828677", "wf4")
+	ret, err := client.DeleteGroupWhite(context.Background(), "groupID", "userID")
 	if err != nil {
 		return
 	}
@@ -436,26 +436,26 @@ func TestClient_DeleteGroupWhite(t *testing.T) {
 }
 
 func TestClient_GetGroupMute(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.GetGroupMute(context.Background(), "233164044828677")
+	ret, err := client.GetGroupMute(context.Background(), "groupID")
 	if err != nil {
 		return
 	}
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_AddGroupMute(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.AddGroupMute(context.Background(), "233164044828677", 1000000, []string{"wf2", "wf3"})
+	ret, err := client.AddGroupMute(context.Background(), "groupID", 1000000, []string{"userID_1", "userID_2"})
 	if err != nil {
 		return
 	}
@@ -463,13 +463,13 @@ func TestClient_AddGroupMute(t *testing.T) {
 }
 
 func TestClient_AllGroupMute(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.AllGroupMute(context.Background(), "233164044828677")
+	ret, err := client.AllGroupMute(context.Background(), "groupID")
 	if err != nil {
 		return
 	}
@@ -477,13 +477,13 @@ func TestClient_AllGroupMute(t *testing.T) {
 }
 
 func TestClient_DeleteGroupMute(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.DeleteGroupMute(context.Background(), "233164044828677", []string{"wf2"})
+	ret, err := client.DeleteGroupMute(context.Background(), "groupID", []string{"userID"})
 	if err != nil {
 		return
 	}
@@ -491,13 +491,13 @@ func TestClient_DeleteGroupMute(t *testing.T) {
 }
 
 func TestClient_RemoveGroupMute(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.RemoveGroupMute(context.Background(), "233164044828677")
+	ret, err := client.RemoveGroupMute(context.Background(), "groupID")
 	if err != nil {
 		return
 	}
@@ -505,9 +505,9 @@ func TestClient_RemoveGroupMute(t *testing.T) {
 }
 
 func TestClient_GetAllThread(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
@@ -519,13 +519,13 @@ func TestClient_GetAllThread(t *testing.T) {
 }
 
 func TestClient_GetUserJoinedThread(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.GetUserJoinedThread(context.Background(), "wf1", "50", "", "")
+	ret, err := client.GetUserJoinedThread(context.Background(), "userID", "50", "", "")
 	if err != nil {
 		return
 	}
@@ -533,13 +533,13 @@ func TestClient_GetUserJoinedThread(t *testing.T) {
 }
 
 func TestClient_GetUserJoinedGroupThread(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.GetUserJoinedGroupThread(context.Background(), "233164044828677", "wf1", "50", "", "")
+	ret, err := client.GetUserJoinedGroupThread(context.Background(), "groupID", "userID", "50", "", "")
 	if err != nil {
 		return
 	}
@@ -547,17 +547,17 @@ func TestClient_GetUserJoinedGroupThread(t *testing.T) {
 }
 
 func TestClient_CreateThread(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
 	p := ThreadParam{
-		GroupId: "233164044828677",
+		GroupId: "groupID",
 		Name:    "1",
 		Owner:   "wf1",
-		MsgId:   "1220920785539974764",
+		MsgId:   "MsgId",
 	}
 	ret, err := client.CreateThread(context.Background(), &p)
 	if err != nil {
@@ -567,26 +567,26 @@ func TestClient_CreateThread(t *testing.T) {
 }
 
 func TestClient_UpdateThread(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.UpdateThread(context.Background(), "test1234", "233239246602251")
+	ret, err := client.UpdateThread(context.Background(), "test1234", "threadId")
 	if err != nil {
 		return
 	}
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_DeleteThread(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.DeleteThread(context.Background(), "233239246602251")
+	ret, err := client.DeleteThread(context.Background(), "threadId")
 	if err != nil {
 		return
 	}
@@ -594,13 +594,13 @@ func TestClient_DeleteThread(t *testing.T) {
 }
 
 func TestClient_GetThreadMember(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.GetThreadMember(context.Background(), "233240905449473", "", "")
+	ret, err := client.GetThreadMember(context.Background(), "threadId", "", "")
 	if err != nil {
 		return
 	}
@@ -608,13 +608,13 @@ func TestClient_GetThreadMember(t *testing.T) {
 }
 
 func TestClient_AddThreadMember(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.AddThreadMember(context.Background(), "233240905449473", []string{"wf2", "wf3"})
+	ret, err := client.AddThreadMember(context.Background(), "threadId", []string{"userID_1", "userID_2"})
 	if err != nil {
 		return
 	}
@@ -622,13 +622,13 @@ func TestClient_AddThreadMember(t *testing.T) {
 }
 
 func TestClient_DeleteThreadMember(t *testing.T) {
-	client, err := New("easemob-demo#support",
-		"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-		"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
 	if err != nil {
 		return
 	}
-	ret, err := client.DeleteThreadMember(context.Background(), "233240905449473", []string{"wf2", "wf3"})
+	ret, err := client.DeleteThreadMember(context.Background(), "threadId", []string{"userID_1", "userID_2"})
 	if err != nil {
 		return
 	}
