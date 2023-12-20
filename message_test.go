@@ -6,19 +6,6 @@ import (
 	"testing"
 )
 
-func TestClient_CountMissedMessages(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
-	if err != nil {
-		return
-	}
-	ret, err := client.CountMissedMessages(context.Background(), "用户ID")
-	if err != nil {
-		return
-	}
-	fmt.Printf("数据的值：%v\n", ret.Data)
-}
 func TestClient_DeleteChannel(t *testing.T) {
 
 	client, err := New("appkey",
@@ -97,19 +84,6 @@ func TestClient_ImportGroupMessage(t *testing.T) {
 		NeedDownload: false,
 	}
 	ret, err := client.ImportGroupMessage(context.Background(), &m)
-	if err != nil {
-		return
-	}
-	fmt.Printf("数据的值：%v\n", ret.Data)
-}
-func TestClient_IsMessageDeliveredToUser(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
-	if err != nil {
-		return
-	}
-	ret, err := client.IsMessageDeliveredToUser(context.Background(), "用户ID", "消息ID")
 	if err != nil {
 		return
 	}

@@ -151,6 +151,39 @@ func (c *Client) makeRequest(ctx context.Context, method, path string, params ur
 
 	return c.parseResponse(resp, result)
 }
+func (c *Client) makeMetadataRequest(ctx context.Context, method, path string, params url.Values, contentType string, result interface{}) error {
+	r, _ := c.newRequest(ctx, method, path, params, nil)
+
+	r.Header.Set("Content-Type", contentType)
+	r.Header.Set("Authorization", "Bearer "+c.appToken)
+	r.Header.Set("User-Agent", "go-sdk")
+
+	// Uncomment the following part to dump a request
+	/*
+		reqDump, _ := httputil.DumpRequestOut(r, true)
+		fmt.Printf("REQUEST:\n%s", string(reqDump))
+	*/
+	resp, err := c.http.Do(r)
+
+	// Uncomment the following part to dump a request
+	/*
+		respDump, _ := httputil.DumpResponse(resp, true)
+		fmt.Printf("\nRESPONSE:\n%s", string(respDump))
+	*/
+
+	if err != nil {
+		select {
+		case <-ctx.Done():
+			// If we got an error, and the context has been canceled,
+			// return context's error which is more useful.
+			return ctx.Err()
+		default:
+		}
+		return err
+	}
+
+	return c.parseResponse(resp, result)
+}
 func (c *Client) uploadingFile(ctx context.Context, method, path, contentType string, data io.Reader, result interface{}) error {
 	u, err := c.requestURL(path, nil)
 	r, _ := http.NewRequest(method, u, data)

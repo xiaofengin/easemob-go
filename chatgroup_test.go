@@ -497,7 +497,7 @@ func TestClient_RemoveGroupMute(t *testing.T) {
 	if err != nil {
 		return
 	}
-	ret, err := client.RemoveGroupMute(context.Background(), "groupID")
+	ret, err := client.RemoveAllGroupMute(context.Background(), "groupID")
 	if err != nil {
 		return
 	}

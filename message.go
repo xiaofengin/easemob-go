@@ -3,7 +3,6 @@ package easemob_go
 import (
 	"bytes"
 	"context"
-	"errors"
 	"io"
 	"mime/multipart"
 	"net/http"
@@ -38,18 +37,6 @@ type MsgRecallParam struct {
 	Force    bool   `json:"force"`
 }
 
-// CountMissedMessages  获取用户离线消息数量
-func (c *Client) CountMissedMessages(ctx context.Context, userID string) (*ResultResponse, error) {
-	if len(userID) == 0 {
-		return nil, errors.New("userID is nil")
-	}
-	p := path.Join("users", url.PathEscape(userID), "offline_msg_count")
-
-	var resp ResultResponse
-	err := c.makeRequest(ctx, http.MethodGet, p, nil, nil, &resp)
-	return &resp, err
-}
-
 // DeleteChannel 单向删除会话
 func (c *Client) DeleteChannel(ctx context.Context, userID string, param *ChannelParam) (*ResultResponse, error) {
 
@@ -78,14 +65,6 @@ func (c *Client) ImportChatMessage(ctx context.Context, msg *ImportMsgModel) (*R
 func (c *Client) ImportGroupMessage(ctx context.Context, msg *ImportMsgModel) (*ResultResponse, error) {
 	var resp ResultResponse
 	err := c.makeRequest(ctx, http.MethodPost, "messages/chatgroups/import", nil, msg, &resp)
-	return &resp, err
-}
-
-// IsMessageDeliveredToUser 查询离线消息的状态，如是否已下发
-func (c *Client) IsMessageDeliveredToUser(ctx context.Context, toUser, messageId string) (*ResultResponse, error) {
-	var resp ResultResponse
-	p := path.Join("users", url.PathEscape(toUser), "offline_msg_status", url.PathEscape(messageId))
-	err := c.makeRequest(ctx, http.MethodGet, p, nil, nil, &resp)
 	return &resp, err
 }
 

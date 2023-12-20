@@ -288,12 +288,11 @@ func (c *Client) AddGroupBlocks(ctx context.Context, groupID string, usernames [
 func (c *Client) DeleteGroupBlocks(ctx context.Context, groupID string, usernames []string) (*ResultResponse, error) {
 	var resp ResultResponse
 	p := path.Join("chatgroups", url.PathEscape(groupID), "blocks/users", strings.Join(usernames, ","))
-	data := map[string]interface{}{"usernames": usernames}
-	err := c.makeRequest(ctx, http.MethodDelete, p, nil, data, &resp)
+	err := c.makeRequest(ctx, http.MethodDelete, p, nil, nil, &resp)
 	return &resp, err
 }
 
-// GetGroupWhite 管理白名单
+// GetGroupWhite 查询群组白名单
 func (c *Client) GetGroupWhite(ctx context.Context, groupID string) (*ResultResponse, error) {
 	var resp ResultResponse
 	p := path.Join("chatgroups", url.PathEscape(groupID), "white/users")
@@ -353,8 +352,8 @@ func (c *Client) DeleteGroupMute(ctx context.Context, groupID string, usernames 
 	return &resp, err
 }
 
-// RemoveGroupMute 解除全员禁言
-func (c *Client) RemoveGroupMute(ctx context.Context, groupID string) (*ResultResponse, error) {
+// RemoveAllGroupMute 解除全员禁言
+func (c *Client) RemoveAllGroupMute(ctx context.Context, groupID string) (*ResultResponse, error) {
 	var resp ResultResponse
 	p := path.Join("chatgroups", url.PathEscape(groupID), "ban")
 	err := c.makeRequest(ctx, http.MethodDelete, p, nil, nil, &resp)
