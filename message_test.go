@@ -194,5 +194,17 @@ func TestClient_UploadingChatFile(t *testing.T) {
 		return
 	}
 	fmt.Printf("数据的值：%v\n", ret.Entities[0].Uuid)
-	fmt.Printf("拼接地址：%v\n", client.baseURL+"/chatfiles/"+ret.Entities[0].Uuid)
+}
+func TestClient_DownloadChatFile(t *testing.T) {
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
+	if err != nil {
+		return
+	}
+	err = client.DownloadChatFile(context.Background(), "4a07fb50-a55e-11ee-85b6-af93291f8570", "./examples/file.md")
+	if err != nil {
+		return
+	}
+
 }

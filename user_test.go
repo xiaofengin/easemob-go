@@ -6,6 +6,35 @@ import (
 	"testing"
 )
 
+func TestClient_GetUserToken(t *testing.T) {
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
+	if err != nil {
+		return
+	}
+
+	//通过用户 ID 和密码获取用户 token
+	//data := TokenParam{
+	//	GrantType: "password",
+	//	Username:  "userID",
+	//	Password:  "1",
+	//	Ttl:       "1024000",
+	//}
+
+	//通过用户 ID 获取用户 token
+	data := TokenParam{
+		GrantType:      "inherit",
+		Username:       "userID",
+		AutoCreateUser: true,
+		Ttl:            "1024000",
+	}
+	ret, err := client.GetUserToken(context.Background(), &data)
+	if err != nil {
+		return
+	}
+	fmt.Printf("数据的值：%v\n", ret.AccessToken)
+}
 func TestClient_UserRegister(t *testing.T) {
 	client, err := New("appkey",
 		"clientId",

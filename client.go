@@ -57,18 +57,6 @@ func New(appkey, clientId, clientSecret string) (*Client, error) {
 			Transport: tr,
 		},
 	}
-	//match, _ := regexp.MatchString("#", appID)
-
-	//if match { // if you are using AppKey + AppTken
-	//	client.appToken = appCertificate
-	//	return client, nil
-	//}
-	//
-	//token, err := client.createAppToken(uint32(time.Now().Unix()) + 7200) // 2h
-	//if err != nil {
-	//	return nil, err
-	//}
-	//client.appToken = token
 	s, err := client.getBaseURL(appkey)
 	if err != nil {
 		return nil, err
@@ -116,8 +104,3 @@ func (c *Client) createAppToken(data *ClientParam) (string, error) {
 	err := c.makeRequest(context.Background(), http.MethodPost, "token", nil, data, &resp)
 	return resp.AccessToken, err
 }
-
-//
-//func (c *Client) createUserToken(Uuid string, expire uint32) (string, error) {
-//	return chatTokenBuilder.BuildChatUserToken(c.appID, c.appCertificate, Uuid, expire)
-//}

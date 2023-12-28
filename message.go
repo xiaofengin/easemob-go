@@ -100,6 +100,9 @@ func (c *Client) SendRoomsMessage(ctx context.Context, msg *MsgModel) (*ResultRe
 }
 
 // UploadingChatFile 上传文件到环信
+// restrictAccess:是否限制访问该文件：
+// - true：是。用户需要通过响应 body 中获取的文件访问密钥（share-secret）才能下载该文件。
+// - false：否。表示不限制访问。用户可以直接下载该文件。
 func (c *Client) UploadingChatFile(ctx context.Context, filePath string) (*UploadingResponse, error) {
 	var resp UploadingResponse
 	file, err := os.Open(filePath)
@@ -114,4 +117,13 @@ func (c *Client) UploadingChatFile(ctx context.Context, filePath string) (*Uploa
 	writer.Close()
 	err = c.uploadingFile(ctx, http.MethodPost, "chatfiles", writer.FormDataContentType(), body, &resp)
 	return &resp, err
+}
+
+// DownloadChatFile 下载文件
+// shareSecret:文件访问密钥。若上传文件时限制了访问，下载该文件时则需要该访问密钥。成功上传文件后，从 文件上传 的响应 body 中获取该密钥。
+// fileUuid 服务器为文件生成的 UUID。
+func (c *Client) DownloadChatFile(ctx context.Context, fileUuid, filePath string) error {
+	p := path.Join("chatfiles", url.PathEscape(fileUuid))
+	err := c.downloadFile(ctx, http.MethodGet, p, filePath)
+	return err
 }

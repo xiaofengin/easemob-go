@@ -9,6 +9,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"os"
 )
 
 type Error struct {
@@ -157,25 +158,10 @@ func (c *Client) makeMetadataRequest(ctx context.Context, method, path string, p
 	r.Header.Set("Content-Type", contentType)
 	r.Header.Set("Authorization", "Bearer "+c.appToken)
 	r.Header.Set("User-Agent", "go-sdk")
-
-	// Uncomment the following part to dump a request
-	/*
-		reqDump, _ := httputil.DumpRequestOut(r, true)
-		fmt.Printf("REQUEST:\n%s", string(reqDump))
-	*/
 	resp, err := c.http.Do(r)
-
-	// Uncomment the following part to dump a request
-	/*
-		respDump, _ := httputil.DumpResponse(resp, true)
-		fmt.Printf("\nRESPONSE:\n%s", string(respDump))
-	*/
-
 	if err != nil {
 		select {
 		case <-ctx.Done():
-			// If we got an error, and the context has been canceled,
-			// return context's error which is more useful.
 			return ctx.Err()
 		default:
 		}
@@ -191,12 +177,9 @@ func (c *Client) uploadingFile(ctx context.Context, method, path, contentType st
 	r.Header.Set("Content-Type", contentType)
 	r.Header.Set("User-Agent", "go-sdk")
 	resp, err := http.DefaultClient.Do(r)
-	//resp, err := c.http.Do(r)
 	if err != nil {
 		select {
 		case <-ctx.Done():
-			// If we got an error, and the context has been canceled,
-			// return context's error which is more useful.
 			return ctx.Err()
 		default:
 		}
@@ -204,4 +187,52 @@ func (c *Client) uploadingFile(ctx context.Context, method, path, contentType st
 	}
 
 	return c.parseResponse(resp, result)
+}
+
+func (c *Client) downloadFile(ctx context.Context, method, path, filePath string) error {
+	r, _ := c.newRequest(ctx, method, path, nil, nil)
+	r.Header.Set("Authorization", "Bearer "+c.appToken)
+	r.Header.Set("Content-Type", "application/octet-stream")
+	r.Header.Set("Accept", "application/octet-stream")
+	r.Header.Set("User-Agent", "go-sdk")
+	r.Header.Set("Authorization", "Bearer "+c.appToken)
+	resp, err := http.DefaultClient.Do(r)
+	if err != nil {
+		select {
+		case <-ctx.Done():
+			return ctx.Err()
+		default:
+		}
+		return err
+	}
+	if resp.Body == nil {
+		return errors.New("http body is nil")
+	}
+	defer resp.Body.Close()
+
+	if err != nil {
+		return fmt.Errorf("failed to read HTTP response: %w", err)
+	}
+	if resp.StatusCode != 200 {
+		var apiErr Error
+		b, err := io.ReadAll(resp.Body)
+		err = json.Unmarshal(b, &apiErr)
+		if err != nil {
+			return apiErr
+		}
+		return apiErr
+	}
+
+	output, err := os.Create(filePath)
+	if err != nil {
+		fmt.Println(err)
+		return err
+	}
+	_, err = io.Copy(output, resp.Body)
+	if err != nil {
+		fmt.Println(err)
+		return err
+	}
+	fmt.Println("下载完成")
+	return nil
 }

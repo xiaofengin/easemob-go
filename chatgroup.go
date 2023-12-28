@@ -156,16 +156,16 @@ func (c *Client) UpdateGroupShareFile(ctx context.Context, groupID, filePath str
 	return &resp, err
 }
 
-//// DownloadGroupShareFile  下载群组共享文件
-//// fileID 群组共享文件ID
-//func (c *Client) DownloadGroupShareFile(ctx context.Context, groupID, fileID string) (*ResultResponse, error) {
-//	var resp ResultResponse
-//	p := path.Join("chatgroups", url.PathEscape(groupID), "share_files", url.PathEscape(fileID))
-//	err := c.makeRequest(ctx, http.MethodGet, p, nil, nil, &resp)
-//	return &resp, err
-//}
+// DownloadGroupShareFile  下载群组共享文件
+// fileID 群组共享文件ID
+func (c *Client) DownloadGroupShareFile(ctx context.Context, groupID, filePath, fileID string) (*ResultResponse, error) {
+	var resp ResultResponse
+	p := path.Join("chatgroups", url.PathEscape(groupID), "share_files", url.PathEscape(fileID))
+	err := c.downloadFile(ctx, http.MethodGet, p, filePath)
+	return &resp, err
+}
 
-// DeleteGroupShareFile  下载群组共享文件
+// DeleteGroupShareFile  删除群组共享文件
 // fileID 群组共享文件ID
 func (c *Client) DeleteGroupShareFile(ctx context.Context, groupID, fileID string) (*ResultResponse, error) {
 	var resp ResultResponse

@@ -183,20 +183,19 @@ func TestClient_UpdateGroupShareFile(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 
-// func TestClient_DownloadGroupShareFile(t *testing.T) {
-//
-//		client, err := New("easemob-demo#support",
-//			"YXA6DWY3t8VBQke0my0Q4RJdeQ",
-//			"YXA6Q3fF5ZwxbbXaAb3zOCYoQhKKAH4")
-//		if err != nil {
-//			return
-//		}
-//		ret, err := client.DownloadGroupShareFile(context.Background(), "233164044828677", "9c742d30-9345-11ee-8c6a-95c432617ad3")
-//		if err != nil {
-//			return
-//		}
-//		fmt.Printf("数据的值：%v\n", ret.Data)
-//	}
+func TestClient_DownloadGroupShareFile(t *testing.T) {
+	client, err := New("appkey",
+		"clientId",
+		"clientSecret")
+	if err != nil {
+		return
+	}
+	ret, err := client.DownloadGroupShareFile(context.Background(), "groupID", "./examples/README.md", "fileID")
+	if err != nil {
+		return
+	}
+	fmt.Printf("数据的值：%v\n", ret.Data)
+}
 func TestClient_DeleteGroupShareFile(t *testing.T) {
 	client, err := New("appkey",
 		"clientId",

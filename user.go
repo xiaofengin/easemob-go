@@ -29,6 +29,36 @@ type MutesParam struct {
 	Chatroom  int    `json:"chatroom"`
 }
 
+type TokenParam struct {
+	// 授权方式。
+	//- 若值为 password，通过用户 ID 和密码获取 token，需设置 username 和 password 参数。
+	//- 若值为 inherit，通过用户 ID 获取 token，只需设置 username 参数。在该请求中，该参数需设置为 inherit
+	GrantType string `json:"grant_type"`
+	//用户 ID。
+	Username string `json:"username"`
+	//用户的登录密码。
+	Password string `json:"password,omitempty"`
+	//当用户不存在时，是否自动创建用户。自动创建用户时，需保证授权方式（grant_type）必须为 inherit，API 请求 header 中使用 App token 进行鉴权。
+	AutoCreateUser bool `json:"autoCreateUser,omitempty"`
+	//否	token 有效期，单位为秒。
+	//- 若传入该参数，token 有效期以传入的值为准。
+	//- 若不传该参数，以 环信即时通讯云控制台的用户认证页面的 token 有效期的设置为准。
+	//- 若设置为 0，则 token 永久有效
+	Ttl string `json:"ttl,omitempty"`
+}
+type TokenResponse struct {
+	AccessToken string      `json:"access_token"`
+	ExpiresIn   int         `json:"expires_in"`
+	User        interface{} `json:"user"`
+}
+
+// GetUserToken 获取用户token
+func (c *Client) GetUserToken(ctx context.Context, param *TokenParam) (*TokenResponse, error) {
+	var resp TokenResponse
+	err := c.makeRequest(ctx, http.MethodPost, "token", nil, param, &resp)
+	return &resp, err
+}
+
 // UserRegister  批量注册用户  单次请求最多可注册 60 个用户 ID。
 // users 用户数据
 func (c *Client) UserRegister(ctx context.Context, users *[]UserRegisterParam) (*ResultResponse, error) {
