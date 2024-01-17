@@ -119,8 +119,8 @@ func CreateCmdMsg(action string, to []string) *MsgModel {
 }
 
 // CreateCustomMsg 创建自定义消息
-func CreateCustomMsg(customEvent string, to []string) *MsgModel {
-	b := map[string]interface{}{"customEvent": customEvent}
+func CreateCustomMsg(customEvent string, customExts map[string]string, to []string) *MsgModel {
+	b := map[string]interface{}{"customEvent": customEvent, "customExts": customExts}
 	return &MsgModel{
 		From:       "admin",
 		To:         to,

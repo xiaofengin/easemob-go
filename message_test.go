@@ -126,7 +126,7 @@ func TestClient_SendChatMessage(t *testing.T) {
 	//m := CreateFileMsg("文件地址URL", "文件名.pdf", tos)
 	//m := CreateLocMsg("39.938881", "116.340836", "北京西直门外大街", tos)
 	//m := CreateCmdMsg("cmd_action", tos)
-	//m := CreateCustomMsg("custom_event", tos)
+	//m := CreateCustomMsg("custom_event", map[string]string{"ext_key1": "ext_value1"}, tos)
 	m.Ext = map[string]interface{}{"s": "s", "f": 6}
 	ret, err := client.SendChatMessage(context.Background(), m)
 	if err != nil {
@@ -150,7 +150,7 @@ func TestClient_SendGroupsMessage(t *testing.T) {
 	//m := CreateFileMsg("文件地址URL", "文件名.pdf", tos)
 	//m := CreateLocMsg("39.938881", "116.340836", "北京西直门外大街", tos)
 	//m := CreateCmdMsg("cmd_action", tos)
-	//m := CreateCustomMsg("custom_event", tos)
+	//m := CreateCustomMsg("custom_event", map[string]string{"ext_key1":"ext_value1"}, tos)
 	m.Ext = map[string]interface{}{"s": "s", "f": 6}
 	ret, err := client.SendGroupsMessage(context.Background(), m)
 	if err != nil {
@@ -174,7 +174,7 @@ func TestClient_SendRoomsMessage(t *testing.T) {
 	//m := CreateFileMsg("文件地址URL", "文件名.pdf", tos)
 	//m := CreateLocMsg("39.938881", "116.340836", "北京西直门外大街", tos)
 	//m := CreateCmdMsg("cmd_action", tos)
-	//m := CreateCustomMsg("custom_event", tos)
+	//m := CreateCustomMsg("custom_event", map[string]string{"ext_key1":"ext_value1"}, tos)
 	m.Ext = map[string]interface{}{"s": "s", "f": 6}
 	ret, err := client.SendRoomsMessage(context.Background(), m)
 	if err != nil {

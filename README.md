@@ -36,7 +36,7 @@ func main() {
 	//m := CreateFileMsg("文件地址URL", "文件名.pdf", tos)
 	//m := CreateLocMsg("39.938881", "116.340836", "北京西直门外大街", tos)
 	//m := CreateCmdMsg("cmd_action", tos)
-	//m := CreateCustomMsg("custom_event", tos)
+	//m := CreateCustomMsg("custom_event", map[string]string{"ext_key1":"ext_value1"}, tos)
 	m.Ext = map[string]interface{}{"key1": "value1", "key2": "value2"}
 	ret, err := client.SendChatMessage(context.Background(), m)
 	if err != nil {
