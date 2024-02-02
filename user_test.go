@@ -3,13 +3,14 @@ package easemob_go
 import (
 	"context"
 	"fmt"
+	"os"
 	"testing"
 )
 
 func TestClient_GetUserToken(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -36,9 +37,9 @@ func TestClient_GetUserToken(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.AccessToken)
 }
 func TestClient_UserRegister(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -59,9 +60,9 @@ func TestClient_UserRegister(t *testing.T) {
 }
 
 func TestClient_GetUserDetail(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -73,9 +74,9 @@ func TestClient_GetUserDetail(t *testing.T) {
 }
 
 func TestClient_GetUserDetailList(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -87,9 +88,9 @@ func TestClient_GetUserDetailList(t *testing.T) {
 }
 
 func TestClient_DeleteUser(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -100,9 +101,9 @@ func TestClient_DeleteUser(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Entities)
 }
 func TestClient_UpdateUserPassword(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -114,9 +115,9 @@ func TestClient_UpdateUserPassword(t *testing.T) {
 }
 
 func TestClient_GetUserStatusList(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -129,9 +130,9 @@ func TestClient_GetUserStatusList(t *testing.T) {
 
 func TestClient_GetUserResources(t *testing.T) {
 
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -143,9 +144,9 @@ func TestClient_GetUserResources(t *testing.T) {
 }
 
 func TestClient_SetUserMutes(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -165,9 +166,9 @@ func TestClient_SetUserMutes(t *testing.T) {
 
 func TestClient_GetUserMutes(t *testing.T) {
 
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -179,9 +180,9 @@ func TestClient_GetUserMutes(t *testing.T) {
 }
 
 func TestClient_GetAppMutesList(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -192,9 +193,9 @@ func TestClient_GetAppMutesList(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_CountMissedMessages(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -208,9 +209,9 @@ func TestClient_CountMissedMessages(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_IsMessageDeliveredToUser(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -222,9 +223,9 @@ func TestClient_IsMessageDeliveredToUser(t *testing.T) {
 }
 
 func TestClient_AccountBan(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -236,9 +237,9 @@ func TestClient_AccountBan(t *testing.T) {
 }
 
 func TestClient_AccountUnban(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -251,9 +252,9 @@ func TestClient_AccountUnban(t *testing.T) {
 
 func TestClient_AccountDisconnect(t *testing.T) {
 
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -265,9 +266,9 @@ func TestClient_AccountDisconnect(t *testing.T) {
 }
 
 func TestClient_SetUserMetadata(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -280,9 +281,9 @@ func TestClient_SetUserMetadata(t *testing.T) {
 }
 
 func TestClient_GetUserMetadata(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -295,9 +296,9 @@ func TestClient_GetUserMetadata(t *testing.T) {
 
 func TestClient_GetUserMetadataList(t *testing.T) {
 
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -312,9 +313,9 @@ func TestClient_GetUserMetadataList(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_DeleteUserMetadata(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -325,9 +326,9 @@ func TestClient_DeleteUserMetadata(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_GetUserMetadataCapacity(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}

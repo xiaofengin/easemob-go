@@ -3,21 +3,22 @@ package easemob_go
 import (
 	"context"
 	"fmt"
+	"os"
 	"testing"
 )
 
 func TestClient_CreateGroup(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
 	p := CreateGroupParam{
-		Groupname:   "testgroup",
+		GroupName:   "testgroup",
 		Description: "test",
 		Public:      false,
-		Maxusers:    300,
+		MaxUsers:    300,
 		Owner:       "userID_1",
 		Members:     []string{"userID_2"},
 	}
@@ -30,9 +31,9 @@ func TestClient_CreateGroup(t *testing.T) {
 }
 
 func TestClient_BanGroup(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -43,9 +44,9 @@ func TestClient_BanGroup(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_UnBanGroup(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -56,17 +57,17 @@ func TestClient_UnBanGroup(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_UpdateGroup(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
 	p := UpdateGroupParam{
-		Groupname:   "test groupname",
+		GroupName:   "test groupname",
 		Description: "updategroupinfo12311",
 		Public:      true,
-		Maxusers:    99,
+		MaxUsers:    99,
 	}
 	ret, err := client.UpdateGroup(context.Background(), "groupID", &p)
 	if err != nil {
@@ -75,9 +76,9 @@ func TestClient_UpdateGroup(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_GetAllGroup(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -89,9 +90,9 @@ func TestClient_GetAllGroup(t *testing.T) {
 }
 
 func TestClient_GetUserJoinedGroup(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -102,9 +103,9 @@ func TestClient_GetUserJoinedGroup(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_GetGroupDetail(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -115,9 +116,9 @@ func TestClient_GetGroupDetail(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_DeleteGroup(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -129,9 +130,9 @@ func TestClient_DeleteGroup(t *testing.T) {
 }
 
 func TestClient_GetGroupAnnouncement(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -143,9 +144,9 @@ func TestClient_GetGroupAnnouncement(t *testing.T) {
 }
 func TestClient_UpdateGroupAnnouncement(t *testing.T) {
 
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -157,9 +158,9 @@ func TestClient_UpdateGroupAnnouncement(t *testing.T) {
 }
 
 func TestClient_GetGroupShareFile(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -170,9 +171,9 @@ func TestClient_GetGroupShareFile(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_UpdateGroupShareFile(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -184,9 +185,9 @@ func TestClient_UpdateGroupShareFile(t *testing.T) {
 }
 
 func TestClient_DownloadGroupShareFile(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -197,9 +198,9 @@ func TestClient_DownloadGroupShareFile(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_DeleteGroupShareFile(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -212,9 +213,9 @@ func TestClient_DeleteGroupShareFile(t *testing.T) {
 
 func TestClient_GetGroupMember(t *testing.T) {
 
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -226,9 +227,9 @@ func TestClient_GetGroupMember(t *testing.T) {
 }
 
 func TestClient_AddGroupMembers(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -239,9 +240,9 @@ func TestClient_AddGroupMembers(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_DeleteGroupMembers(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -253,9 +254,9 @@ func TestClient_DeleteGroupMembers(t *testing.T) {
 }
 
 func TestClient_SetGroupMemberAttributes(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -267,9 +268,9 @@ func TestClient_SetGroupMemberAttributes(t *testing.T) {
 }
 
 func TestClient_GetGroupMemberAttributes(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -281,9 +282,9 @@ func TestClient_GetGroupMemberAttributes(t *testing.T) {
 }
 
 func TestClient_GetGroupMembersAttributesData(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -294,9 +295,9 @@ func TestClient_GetGroupMembersAttributesData(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_GetGroupAdmin(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -309,9 +310,9 @@ func TestClient_GetGroupAdmin(t *testing.T) {
 
 func TestClient_AddGroupAdmin(t *testing.T) {
 
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -323,9 +324,9 @@ func TestClient_AddGroupAdmin(t *testing.T) {
 }
 
 func TestClient_DeleteGroupAdmin(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -337,9 +338,9 @@ func TestClient_DeleteGroupAdmin(t *testing.T) {
 }
 
 func TestClient_TransferGroupAdmin(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -351,9 +352,9 @@ func TestClient_TransferGroupAdmin(t *testing.T) {
 }
 func TestClient_GetGroupBlocks(t *testing.T) {
 
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -364,9 +365,9 @@ func TestClient_GetGroupBlocks(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_AddGroupBlocks(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -378,9 +379,9 @@ func TestClient_AddGroupBlocks(t *testing.T) {
 }
 
 func TestClient_DeleteGroupBlocks(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -392,9 +393,9 @@ func TestClient_DeleteGroupBlocks(t *testing.T) {
 }
 
 func TestClient_GetGroupWhite(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -407,9 +408,9 @@ func TestClient_GetGroupWhite(t *testing.T) {
 
 func TestClient_AddGroupWhites(t *testing.T) {
 
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -421,9 +422,9 @@ func TestClient_AddGroupWhites(t *testing.T) {
 }
 
 func TestClient_DeleteGroupWhite(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -435,9 +436,9 @@ func TestClient_DeleteGroupWhite(t *testing.T) {
 }
 
 func TestClient_GetGroupMute(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -448,9 +449,9 @@ func TestClient_GetGroupMute(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_AddGroupMute(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -462,9 +463,9 @@ func TestClient_AddGroupMute(t *testing.T) {
 }
 
 func TestClient_AllGroupMute(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -476,9 +477,9 @@ func TestClient_AllGroupMute(t *testing.T) {
 }
 
 func TestClient_DeleteGroupMute(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -490,9 +491,9 @@ func TestClient_DeleteGroupMute(t *testing.T) {
 }
 
 func TestClient_RemoveGroupMute(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -504,9 +505,9 @@ func TestClient_RemoveGroupMute(t *testing.T) {
 }
 
 func TestClient_GetAllThread(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -518,9 +519,9 @@ func TestClient_GetAllThread(t *testing.T) {
 }
 
 func TestClient_GetUserJoinedThread(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -532,9 +533,9 @@ func TestClient_GetUserJoinedThread(t *testing.T) {
 }
 
 func TestClient_GetUserJoinedGroupThread(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -546,9 +547,9 @@ func TestClient_GetUserJoinedGroupThread(t *testing.T) {
 }
 
 func TestClient_CreateThread(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -566,9 +567,9 @@ func TestClient_CreateThread(t *testing.T) {
 }
 
 func TestClient_UpdateThread(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -579,9 +580,9 @@ func TestClient_UpdateThread(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_DeleteThread(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -593,9 +594,9 @@ func TestClient_DeleteThread(t *testing.T) {
 }
 
 func TestClient_GetThreadMember(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -607,9 +608,9 @@ func TestClient_GetThreadMember(t *testing.T) {
 }
 
 func TestClient_AddThreadMember(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -621,9 +622,9 @@ func TestClient_AddThreadMember(t *testing.T) {
 }
 
 func TestClient_DeleteThreadMember(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}

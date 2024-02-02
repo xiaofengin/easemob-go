@@ -3,13 +3,14 @@ package easemob_go
 import (
 	"context"
 	"fmt"
+	"os"
 	"testing"
 )
 
 func TestClient_AddContact(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -21,9 +22,9 @@ func TestClient_AddContact(t *testing.T) {
 }
 
 func TestClient_DeleteContact(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -36,9 +37,9 @@ func TestClient_DeleteContact(t *testing.T) {
 
 func TestClient_SetContactRemark(t *testing.T) {
 
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -50,13 +51,26 @@ func TestClient_SetContactRemark(t *testing.T) {
 }
 
 func TestClient_GetContactList(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
-	ret, err := client.GetContactList(context.Background(), "userID_1")
+	ret, err := client.GetContactList(context.Background(), "userID_1", "", "20", "true")
+	if err != nil {
+		return
+	}
+	fmt.Printf("数据的值：%v\n", ret.Data)
+}
+func TestClient_GetAllContactList(t *testing.T) {
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
+	if err != nil {
+		return
+	}
+	ret, err := client.GetAllContactList(context.Background(), "userID_1")
 	if err != nil {
 		return
 	}
@@ -64,9 +78,9 @@ func TestClient_GetContactList(t *testing.T) {
 }
 
 func TestClient_AddContactBlocks(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -78,9 +92,9 @@ func TestClient_AddContactBlocks(t *testing.T) {
 }
 
 func TestClient_GetContactBlocksList(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -92,9 +106,9 @@ func TestClient_GetContactBlocksList(t *testing.T) {
 }
 
 func TestClient_DeleteContactBlocks(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}

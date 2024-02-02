@@ -14,23 +14,23 @@ import (
 )
 
 type CreateGroupParam struct {
-	Groupname         string   `json:"groupname,omitempty"`           //群组名称，最大长度为 128 字符。
+	GroupName         string   `json:"groupname,omitempty"`           //群组名称，最大长度为 128 字符。
 	Description       string   `json:"description,omitempty"`         //群组描述，最大长度为 512 字符。
 	Public            bool     `json:"public"`                        //是否是公开群。公开群可以被搜索到，用户可以申请加入公开群；私有群无法被搜索到，因此需要群主或群管理员添加，用户才可以加入。
 	Scale             string   `json:"scale,omitempty"`               //群组规模，取决于群成员总数 maxusers 参数。（默认）normal：普通群，即群成员总数不超过 3000。large：大型群，群成员总数超过 3000。
-	Maxusers          int      `json:"maxusers,omitempty"`            //群组最大成员数（包括群主）。对于普通群，该参数的默认值为 200，大型群为 1000
-	Membersonly       bool     `json:"membersonly,omitempty"`         //用户申请入群是否需要群主或者群管理员审批。（默认）false
+	MaxUsers          int      `json:"maxusers,omitempty"`            //群组最大成员数（包括群主）。对于普通群，该参数的默认值为 200，大型群为 1000
+	MembersOnly       bool     `json:"membersonly,omitempty"`         //用户申请入群是否需要群主或者群管理员审批。（默认）false
 	InviteNeedConfirm bool     `json:"invite_need_confirm,omitempty"` //邀请用户入群时是否需要被邀用户同意。（默认）true：
 	Owner             string   `json:"owner"`                         //群主的用户 ID。
 	Members           []string `json:"members,omitempty"`             //群成员的用户 ID 数组，不包含群主的用户 ID。该数组可包含的元素数量不超过 maxusers 的值。
 	Custom            string   `json:"custom,omitempty"`              //群主的用户 ID。
 }
 type UpdateGroupParam struct {
-	Groupname         string `json:"groupname,omitempty"`           //群组名称，最大长度为 128 字符。
+	GroupName         string `json:"groupname,omitempty"`           //群组名称，最大长度为 128 字符。
 	Description       string `json:"description,omitempty"`         //群组描述，最大长度为 512 字符。
 	Public            bool   `json:"public,omitempty"`              //是否是公开群。公开群可以被搜索到，用户可以申请加入公开群；私有群无法被搜索到，因此需要群主或群管理员添加，用户才可以加入。
-	Maxusers          int    `json:"maxusers,omitempty"`            //群组最大成员数（包括群主）。对于普通群，该参数的默认值为 200，大型群为 1000
-	Membersonly       bool   `json:"membersonly,omitempty"`         //用户申请入群是否需要群主或者群管理员审批。（默认）false
+	MaxUsers          int    `json:"maxusers,omitempty"`            //群组最大成员数（包括群主）。对于普通群，该参数的默认值为 200，大型群为 1000
+	MembersOnly       bool   `json:"membersonly,omitempty"`         //用户申请入群是否需要群主或者群管理员审批。（默认）false
 	InviteNeedConfirm bool   `json:"invite_need_confirm,omitempty"` //邀请用户入群时是否需要被邀用户同意。（默认）true：
 	Custom            string `json:"custom,omitempty"`              //群主的用户 ID。
 }

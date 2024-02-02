@@ -3,14 +3,15 @@ package easemob_go
 import (
 	"context"
 	"fmt"
+	"os"
 	"testing"
 )
 
 func TestClient_PushBinding(t *testing.T) {
 
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -27,9 +28,9 @@ func TestClient_PushBinding(t *testing.T) {
 }
 
 func TestClient_PushBindingInfo(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -41,9 +42,9 @@ func TestClient_PushBindingInfo(t *testing.T) {
 }
 
 func TestClient_UpdateUserPushNickname(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -55,9 +56,9 @@ func TestClient_UpdateUserPushNickname(t *testing.T) {
 }
 
 func TestClient_SetNotificationDisplayStyle(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -69,9 +70,9 @@ func TestClient_SetNotificationDisplayStyle(t *testing.T) {
 }
 
 func TestClient_SetOfflinePush(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -91,9 +92,9 @@ func TestClient_SetOfflinePush(t *testing.T) {
 }
 
 func TestClient_GetOfflinePush(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}

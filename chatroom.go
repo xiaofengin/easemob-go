@@ -11,7 +11,7 @@ import (
 type CreateRoomParam struct {
 	Name        string   `json:"name"`               //聊天室名称，最大长度为 128 个字符。
 	Description string   `json:"description"`        //聊天室描述，最大长度为 512 字符。
-	Maxusers    int      `json:"maxusers,omitempty"` //聊天室最大成员数（包括聊天室所有者）。取值范围为 [1,10,000]，默认值为 1000。如需调整请联系商务。
+	MaxUsers    int      `json:"maxusers,omitempty"` //聊天室最大成员数（包括聊天室所有者）。取值范围为 [1,10,000]，默认值为 1000。如需调整请联系商务。
 	Owner       string   `json:"owner"`              //聊天室所有者。
 	Members     []string `json:"members,omitempty"`  //聊天室普通成员和管理员的用户 ID 数组，不包含聊天室所有者的用户 ID。该数组可包含的元素数量不超过 maxusers 的值。若传该参数，确保至少设置一个数组元素。
 	Custom      string   `json:"custom,omitempty"`   //聊天室扩展信息，例如可以给聊天室添加业务相关的标记，不要超过 1,024 个字符。
@@ -19,7 +19,7 @@ type CreateRoomParam struct {
 type UpdateRoomParam struct {
 	Name        string `json:"name"`               //聊天室名称，最大长度为 128 个字符。
 	Description string `json:"description"`        //聊天室描述，最大长度为 512 字符。
-	Maxusers    int    `json:"maxusers,omitempty"` //聊天室最大成员数（包括聊天室所有者）。取值范围为 [1,10,000]，默认值为 1000。如需调整请联系商务。
+	MaxUsers    int    `json:"maxusers,omitempty"` //聊天室最大成员数（包括聊天室所有者）。取值范围为 [1,10,000]，默认值为 1000。如需调整请联系商务。
 }
 
 // AddChatRoomsSuperAdmin  添加超级管理员  在即时通讯应用中，仅聊天室超级管理员具有在客户端创建聊天室的权限。

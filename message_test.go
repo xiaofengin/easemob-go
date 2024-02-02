@@ -3,14 +3,15 @@ package easemob_go
 import (
 	"context"
 	"fmt"
+	"os"
 	"testing"
 )
 
 func TestClient_DeleteChannel(t *testing.T) {
 
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -26,9 +27,9 @@ func TestClient_DeleteChannel(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_GetHistoryAsUri(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -39,9 +40,9 @@ func TestClient_GetHistoryAsUri(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_ImportChatMessage(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -65,9 +66,9 @@ func TestClient_ImportChatMessage(t *testing.T) {
 
 }
 func TestClient_ImportGroupMessage(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -90,9 +91,9 @@ func TestClient_ImportGroupMessage(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_RecallMsg(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -111,9 +112,9 @@ func TestClient_RecallMsg(t *testing.T) {
 }
 func TestClient_SendChatMessage(t *testing.T) {
 
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -135,9 +136,9 @@ func TestClient_SendChatMessage(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_SendGroupsMessage(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -159,9 +160,9 @@ func TestClient_SendGroupsMessage(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_SendRoomsMessage(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -183,9 +184,9 @@ func TestClient_SendRoomsMessage(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Data)
 }
 func TestClient_UploadingChatFile(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}
@@ -196,9 +197,9 @@ func TestClient_UploadingChatFile(t *testing.T) {
 	fmt.Printf("数据的值：%v\n", ret.Entities[0].Uuid)
 }
 func TestClient_DownloadChatFile(t *testing.T) {
-	client, err := New("appkey",
-		"clientId",
-		"clientSecret")
+	client, err := New(os.Getenv("appkey"),
+		os.Getenv("clientId"),
+		os.Getenv("clientSecret"))
 	if err != nil {
 		return
 	}

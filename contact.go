@@ -47,8 +47,23 @@ func (c *Client) SetContactRemark(ctx context.Context, ownerID, friendID, remark
 	return &resp, err
 }
 
-// GetContactList 获取好友列表
-func (c *Client) GetContactList(ctx context.Context, ownerID string) (*ResultResponse, error) {
+// GetContactList 分页获取好友列表
+// limit 每次期望返回的好友的数量。取值范围为 [1,50]。该参数仅在分页获取时为必需，默认为 10
+// cursor 数据查询的起始位置。该参数仅在分页获取时为必需。第一次调用该接口不传 cursor，获取 limit 指定的好友数量。
+// needReturnRemark 是否需要返回好友备注：true：返回 false：不返回。
+func (c *Client) GetContactList(ctx context.Context, ownerID, cursor, limit, needReturnRemark string) (*ResultResponse, error) {
+	var resp ResultResponse
+	values := url.Values{}
+	values.Add("limit", limit)
+	values.Add("cursor", cursor)
+	values.Add("needReturnRemark", needReturnRemark)
+	p := path.Join("users", url.PathEscape(ownerID), "contacts")
+	err := c.makeRequest(ctx, http.MethodGet, p, values, nil, &resp)
+	return &resp, err
+}
+
+// GetAllContactList 一次性获取好友列表
+func (c *Client) GetAllContactList(ctx context.Context, ownerID string) (*ResultResponse, error) {
 	var resp ResultResponse
 	p := path.Join("users", url.PathEscape(ownerID), "contacts/users")
 	err := c.makeRequest(ctx, http.MethodGet, p, nil, nil, &resp)
