@@ -48,7 +48,6 @@ func New(appkey, clientId, clientSecret, domainURL string) (*Client, error) {
 		GrantType:    "client_credentials",
 		ClientId:     clientId,
 		ClientSecret: clientSecret,
-		Ttl:          "1024000",
 	}
 	token, err := client.createAppToken(data)
 	if err == nil {
