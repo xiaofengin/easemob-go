@@ -10,7 +10,8 @@ import (
 func TestClient_GetUserToken(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -39,7 +40,8 @@ func TestClient_GetUserToken(t *testing.T) {
 func TestClient_UserRegister(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -62,7 +64,8 @@ func TestClient_UserRegister(t *testing.T) {
 func TestClient_GetUserDetail(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -76,7 +79,8 @@ func TestClient_GetUserDetail(t *testing.T) {
 func TestClient_GetUserDetailList(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -90,7 +94,8 @@ func TestClient_GetUserDetailList(t *testing.T) {
 func TestClient_DeleteUser(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -103,7 +108,8 @@ func TestClient_DeleteUser(t *testing.T) {
 func TestClient_UpdateUserPassword(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -117,7 +123,8 @@ func TestClient_UpdateUserPassword(t *testing.T) {
 func TestClient_GetUserStatusList(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -132,7 +139,8 @@ func TestClient_GetUserResources(t *testing.T) {
 
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -146,7 +154,8 @@ func TestClient_GetUserResources(t *testing.T) {
 func TestClient_SetUserMutes(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -168,7 +177,8 @@ func TestClient_GetUserMutes(t *testing.T) {
 
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -182,7 +192,8 @@ func TestClient_GetUserMutes(t *testing.T) {
 func TestClient_GetAppMutesList(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -195,7 +206,8 @@ func TestClient_GetAppMutesList(t *testing.T) {
 func TestClient_CountMissedMessages(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -211,7 +223,8 @@ func TestClient_CountMissedMessages(t *testing.T) {
 func TestClient_IsMessageDeliveredToUser(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -225,7 +238,8 @@ func TestClient_IsMessageDeliveredToUser(t *testing.T) {
 func TestClient_AccountBan(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -239,7 +253,8 @@ func TestClient_AccountBan(t *testing.T) {
 func TestClient_AccountUnban(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -254,7 +269,8 @@ func TestClient_AccountDisconnect(t *testing.T) {
 
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -268,7 +284,8 @@ func TestClient_AccountDisconnect(t *testing.T) {
 func TestClient_SetUserMetadata(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -283,7 +300,8 @@ func TestClient_SetUserMetadata(t *testing.T) {
 func TestClient_GetUserMetadata(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -298,7 +316,8 @@ func TestClient_GetUserMetadataList(t *testing.T) {
 
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -315,7 +334,8 @@ func TestClient_GetUserMetadataList(t *testing.T) {
 func TestClient_DeleteUserMetadata(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -328,7 +348,8 @@ func TestClient_DeleteUserMetadata(t *testing.T) {
 func TestClient_GetUserMetadataCapacity(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}

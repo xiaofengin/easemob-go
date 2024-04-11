@@ -11,7 +11,8 @@ func TestClient_DeleteChannel(t *testing.T) {
 
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -29,7 +30,8 @@ func TestClient_DeleteChannel(t *testing.T) {
 func TestClient_GetHistoryAsUri(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -42,7 +44,8 @@ func TestClient_GetHistoryAsUri(t *testing.T) {
 func TestClient_ImportChatMessage(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -68,7 +71,8 @@ func TestClient_ImportChatMessage(t *testing.T) {
 func TestClient_ImportGroupMessage(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -93,7 +97,8 @@ func TestClient_ImportGroupMessage(t *testing.T) {
 func TestClient_RecallMsg(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -114,7 +119,8 @@ func TestClient_SendChatMessage(t *testing.T) {
 
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -138,7 +144,8 @@ func TestClient_SendChatMessage(t *testing.T) {
 func TestClient_SendGroupsMessage(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -162,7 +169,8 @@ func TestClient_SendGroupsMessage(t *testing.T) {
 func TestClient_SendRoomsMessage(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -186,7 +194,8 @@ func TestClient_SendRoomsMessage(t *testing.T) {
 func TestClient_UploadingChatFile(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -199,7 +208,8 @@ func TestClient_UploadingChatFile(t *testing.T) {
 func TestClient_DownloadChatFile(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}

@@ -10,7 +10,8 @@ import (
 func TestClient_AddContact(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -24,7 +25,8 @@ func TestClient_AddContact(t *testing.T) {
 func TestClient_DeleteContact(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -39,7 +41,8 @@ func TestClient_SetContactRemark(t *testing.T) {
 
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -53,7 +56,8 @@ func TestClient_SetContactRemark(t *testing.T) {
 func TestClient_GetContactList(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -66,7 +70,8 @@ func TestClient_GetContactList(t *testing.T) {
 func TestClient_GetAllContactList(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -80,7 +85,8 @@ func TestClient_GetAllContactList(t *testing.T) {
 func TestClient_AddContactBlocks(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -94,7 +100,8 @@ func TestClient_AddContactBlocks(t *testing.T) {
 func TestClient_GetContactBlocksList(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -108,7 +115,8 @@ func TestClient_GetContactBlocksList(t *testing.T) {
 func TestClient_DeleteContactBlocks(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}

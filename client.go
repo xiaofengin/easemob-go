@@ -2,10 +2,7 @@ package easemob_go
 
 import (
 	"context"
-	"encoding/json"
-	"io"
 	"net/http"
-	"net/url"
 	"strings"
 	"time"
 )
@@ -21,19 +18,6 @@ type ClientParam struct {
 	ClientSecret string `json:"client_secret"`
 	Ttl          string `json:"ttl"`
 }
-type hosts struct {
-	Protocol string `json:"protocol"`
-	Port     string `json:"port"`
-	Domain   string `json:"domain"`
-	Channel  string `json:"channel"`
-	Priority string `json:"priority"`
-}
-type rsst struct {
-	Hosts []hosts `json:"hosts"`
-}
-type server struct {
-	Rest rsst `json:"rest"`
-}
 type Client struct {
 	http         *http.Client `json:"-"`
 	baseURL      string
@@ -43,61 +27,34 @@ type Client struct {
 	appToken     string
 }
 
-func New(appkey, clientId, clientSecret string) (*Client, error) {
+func New(appkey, clientId, clientSecret, domainURL string) (*Client, error) {
 	tr := http.DefaultTransport.(*http.Transport).Clone()
 	tr.MaxIdleConnsPerHost = 5
 	tr.IdleConnTimeout = 59 * time.Second
 	tr.ExpectContinueTimeout = 2 * time.Second
+
+	baseURL := domainURL + "/" + strings.Replace(appkey, "#", "/", 1)
 	client := &Client{
 		appkey:       appkey,
 		clientId:     clientId,
 		clientSecret: clientSecret,
+		baseURL:      baseURL,
 		http: &http.Client{
 			Timeout:   6 * time.Second,
 			Transport: tr,
 		},
 	}
-	s, err := client.getBaseURL(appkey)
-	if err != nil {
-		return nil, err
+	data := &ClientParam{
+		GrantType:    "client_credentials",
+		ClientId:     clientId,
+		ClientSecret: clientSecret,
+		Ttl:          "1024000",
 	}
-	for _, host := range s.Rest.Hosts {
-		u := host.Protocol + "://" + host.Domain + "/" + strings.Replace(appkey, "#", "/", 1)
-		client.baseURL = u
-		data := &ClientParam{
-			GrantType:    "client_credentials",
-			ClientId:     clientId,
-			ClientSecret: clientSecret,
-			Ttl:          "1024000",
-		}
-		token, err := client.createAppToken(data)
-		if err == nil {
-			client.appToken = token
-			break
-		}
+	token, err := client.createAppToken(data)
+	if err == nil {
+		client.appToken = token
 	}
-	return client, nil
-}
-func (c *Client) getBaseURL(appkey string) (*server, error) {
-	var resp server
-	urlStr := "https://rs.easemob.com/easemob/server.json?app_key=" + url.QueryEscape(appkey)
-	req, _ := http.NewRequest("GET", urlStr, nil)
-	res, _ := http.DefaultClient.Do(req)
-
-	defer res.Body.Close()
-	body, err := io.ReadAll(res.Body)
-	if err != nil {
-		return nil, err
-	}
-
-	if res.StatusCode != 200 {
-		return nil, err
-	}
-	err = json.Unmarshal(body, &resp)
-	if err != nil {
-		return nil, err
-	}
-	return &resp, err
+	return client, err
 }
 func (c *Client) createAppToken(data *ClientParam) (string, error) {
 	var resp AppToken

@@ -11,7 +11,8 @@ func TestClient_AddChatRoomsSuperAdmin(t *testing.T) {
 
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -26,7 +27,8 @@ func TestClient_AddChatRoomsSuperAdmin(t *testing.T) {
 func TestClient_GetChatRoomsSuperAdmin(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -41,7 +43,8 @@ func TestClient_GetChatRoomsSuperAdmin(t *testing.T) {
 func TestClient_DeleteChatRoomsSuperAdmin(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -56,7 +59,8 @@ func TestClient_DeleteChatRoomsSuperAdmin(t *testing.T) {
 func TestClient_GetAppChatRoomsList(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -72,7 +76,8 @@ func TestClient_GetAppChatRoomsList(t *testing.T) {
 func TestClient_GetUserJoinedChatRooms(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -86,7 +91,8 @@ func TestClient_GetUserJoinedChatRooms(t *testing.T) {
 func TestClient_CreateChatRooms(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -108,7 +114,8 @@ func TestClient_CreateChatRooms(t *testing.T) {
 func TestClient_GetChatRooms(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -122,7 +129,8 @@ func TestClient_GetChatRooms(t *testing.T) {
 func TestClient_UpdateChatRooms(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -141,7 +149,8 @@ func TestClient_UpdateChatRooms(t *testing.T) {
 func TestClient_DeleteChatRooms(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -158,7 +167,8 @@ func TestClient_DeleteChatRooms(t *testing.T) {
 func TestClient_GetRoomAnnouncement(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -173,7 +183,8 @@ func TestClient_GetRoomAnnouncement(t *testing.T) {
 func TestClient_UpdateRoomAnnouncement(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -188,7 +199,8 @@ func TestClient_UpdateRoomAnnouncement(t *testing.T) {
 func TestClient_SetRoomMetadata(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -207,7 +219,8 @@ func TestClient_GetRoomMetadata(t *testing.T) {
 
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -222,7 +235,8 @@ func TestClient_GetRoomMetadata(t *testing.T) {
 func TestClient_DeleteRoomMetadata(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -237,7 +251,8 @@ func TestClient_DeleteRoomMetadata(t *testing.T) {
 func TestClient_SetRoomMetadataForced(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -256,7 +271,8 @@ func TestClient_SetRoomMetadataForced(t *testing.T) {
 func TestClient_DeleteRoomMetadataForced(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -271,7 +287,8 @@ func TestClient_DeleteRoomMetadataForced(t *testing.T) {
 func TestClient_GetRoomMember(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -286,7 +303,8 @@ func TestClient_GetRoomMember(t *testing.T) {
 func TestClient_AddRoomMembers(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -301,7 +319,8 @@ func TestClient_AddRoomMembers(t *testing.T) {
 func TestClient_DeleteRoomMembers(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -316,7 +335,8 @@ func TestClient_DeleteRoomMembers(t *testing.T) {
 func TestClient_GetRoomAdmin(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -330,7 +350,8 @@ func TestClient_GetRoomAdmin(t *testing.T) {
 func TestClient_AddRoomAdmin(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -344,7 +365,8 @@ func TestClient_AddRoomAdmin(t *testing.T) {
 func TestClient_DeleteRoomAdmin(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -358,7 +380,8 @@ func TestClient_DeleteRoomAdmin(t *testing.T) {
 func TestClient_GetRoomBlocks(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -373,7 +396,8 @@ func TestClient_GetRoomBlocks(t *testing.T) {
 func TestClient_AddRoomBlocks(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -388,7 +412,8 @@ func TestClient_AddRoomBlocks(t *testing.T) {
 func TestClient_DeleteRoomBlocks(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -403,7 +428,8 @@ func TestClient_DeleteRoomBlocks(t *testing.T) {
 func TestClient_GetRoomWhite(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -417,7 +443,8 @@ func TestClient_GetRoomWhite(t *testing.T) {
 func TestClient_AddRoomWhites(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -431,7 +458,8 @@ func TestClient_AddRoomWhites(t *testing.T) {
 func TestClient_DeleteRoomWhite(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -446,7 +474,8 @@ func TestClient_DeleteRoomWhite(t *testing.T) {
 func TestClient_GetRoomMute(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -461,7 +490,8 @@ func TestClient_GetRoomMute(t *testing.T) {
 func TestClient_AddRoomMute(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -476,7 +506,8 @@ func TestClient_AddRoomMute(t *testing.T) {
 func TestClient_AllRoomMute(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -490,7 +521,8 @@ func TestClient_AllRoomMute(t *testing.T) {
 func TestClient_DeleteRoomMute(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}
@@ -504,7 +536,8 @@ func TestClient_DeleteRoomMute(t *testing.T) {
 func TestClient_RemoveAllRoomMute(t *testing.T) {
 	client, err := New(os.Getenv("appkey"),
 		os.Getenv("clientId"),
-		os.Getenv("clientSecret"))
+		os.Getenv("clientSecret"),
+		"https://a1.easemob.com")
 	if err != nil {
 		return
 	}

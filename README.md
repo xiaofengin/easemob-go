@@ -10,6 +10,8 @@
 # 使用方法
 - go.mod 文件引入： github.com/xiaofengin/easemob-go
 
+有效的环信即时通讯 IM 开发者账号和 App Key、Client ID、ClientSecret、BasePath，登录 [环信管理后台](https://console.easemob.com/user/login) 到“应用列表” → 点击“查看”即可获取到 App Key、Client ID、ClientSecret，到"即时通讯" → 点击"服务概览"获取到 "Rest api" 的服务器域名。
+#
 ```go
 
 package main
@@ -23,7 +25,8 @@ import (
 func main() {
 	client, err := IMSDK.New("appkey",
 		"clientId",
-		"clientSecret")
+		"clientSecret",
+		"domainURL")
 	if err != nil {
 		return
 	}
